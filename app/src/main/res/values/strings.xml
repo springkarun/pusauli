@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">DIGITAL PUSAULI</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+
+    <string name="select_categories">Select Categories</string>
+
+    <string name="medical">Medical</string>
+    <string name="hospital">Hospital</string>
+    <string name="electronic">Electronic</string>
+    <string name="generalStore">General Store</string>
+    <string name="sweets">Sweets</string>
+    <string name="fruite">Fruites</string>
+    <string name="vegetable">Vegetables</string>
+    <string name="shoes">Shoes</string>
+    <string name="cloth">Cloth</string>
+    <string name="carpenter">Car Penter</string>
+    <string name="farincher">Farincher</string>
+    <string name="restaurants">Restaurants</string>
+    <string name="school">School</string>
+    <string name="stacenary">Stacenary</string>
+    <string name="hotel">Hotel</string>
+    <string name="temple">Temple</string>
+    <string name="tuition_study">Tuition</string>
+    <string name="bank">Bank</string>
+    <string name="grocery">Grocery</string>
+    <string name="mobile">Mobile</string>
+    <string name="jewels">Jewels</string>
+    <string name="vehicle">Vehicle</string>
+    <string name="petrol">Petrol Pump</string>
+    <string name="post_office">Post Office</string>
+    <string name="railway_station">Railway Station</string>
+    <string name="bus_stand">Bus Stand</string>
+    <string name="auto">Auto</string>
+
+
+
+</resources>
