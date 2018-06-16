@@ -37,7 +37,21 @@
     <string name="railway_station">Railway Station</string>
     <string name="bus_stand">Bus Stand</string>
     <string name="auto">Auto</string>
+    <string name="results_found">No Results Found</string>
+    <string name="network_status">Good! Connected to Internet</string>
+    <string name="network_status_false">Sorry! No internet available</string>
+    <string name="back_press">Please click BACK again to exit</string>
 
+
+
+    <string name="about_college">As part of its initiative to improve educational system in India, Bennett, Coleman, and Co. Ltd. established Bennett University in Greater Noida, Uttar Pradesh. It is a private University which began operation in 2016, with academic operation beginning in August 2016.</string>
+
+    <string name="campush">The foundation for Bennettent distance from the southern part of Delhi and is located in a peaceful locale. Once fully functional, the 68 acre campus of the university is expected to accommodate over 13,000 students.</string>
+
+    <string name="histroy">The University aims to set a benchmark for higher education by introducing new methods of teaching, training, and research. The university boasts of Johnson Cornell University and Georgia Institute of Technology as its academic partner.</string>
+
+
+    <string name="app_me">Get My College opens doors for numerous opportunities for your future.</string>
 
 
 </resources>

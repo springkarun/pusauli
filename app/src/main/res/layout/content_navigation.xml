@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:scrollbars="none"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".NavigationActivity"
+    tools:context=".view.categroy_menu.NavigationActivity"
     tools:showIn="@layout/app_bar_navigation">
 
 
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/select_categories"
-                android:src="@drawable/ic_right_direction" />
+                app:srcCompat="@drawable/ic_right_direction" />
 
             <TextView
                 android:layout_width="wrap_content"

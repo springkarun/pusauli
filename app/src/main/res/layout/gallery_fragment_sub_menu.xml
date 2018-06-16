@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+
+    <com.github.florent37.materialleanback.MaterialLeanBack
+        android:layout_marginTop="10dp"
+        android:id="@+id/materialLeanBack1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:mlb_background="@android:color/white"
+        app:mlb_lineSpacing="30dp"
+        app:mlb_paddingBottom="60dp"
+        app:mlb_paddingLeft="30dp"
+        app:mlb_paddingRight="30dp"
+        app:mlb_paddingTop="5dp"
+        app:mlb_titleColor="@android:color/black" />
+
+
+</android.support.v4.widget.NestedScrollView>
