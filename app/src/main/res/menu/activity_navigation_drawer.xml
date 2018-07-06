@@ -9,17 +9,17 @@
             android:icon="@drawable/ic_apple"
             android:title="Import" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_login"
             android:icon="@drawable/ic_doctor"
-            android:title="Gallery" />
+            android:title="Login" />
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_grocery"
             android:title="Slideshow" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_settings"
             android:icon="@drawable/ic_laddu"
-            android:title="Tools" />
+            android:title="@string/action_settings" />
     </group>
 
     <item android:title="Communicate">

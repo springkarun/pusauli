@@ -1,6 +1,8 @@
 package com.digital_pusauli.view.categroy_menu
 
 import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.os.Handler
@@ -11,24 +13,30 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.MenuItem
 import com.digital_pusauli.R
 import com.digital_pusauli.app.AppController
 import com.digital_pusauli.utils.ConnectivityReceiver
 import com.digital_pusauli.utils.Utils
+import com.digital_pusauli.utils.Utils.toast
+import com.digital_pusauli.view.SplashActivity
+import com.digital_pusauli.view.list_menu.Settings
+import com.digital_pusauli.view.login_upload.login.LoginUploadActivity
 import kotlinx.android.synthetic.main.activity_navigation.*
 import kotlinx.android.synthetic.main.app_bar_navigation.*
 import kotlinx.android.synthetic.main.content_navigation.*
 import technolifestyle.com.imageslider.FlipperLayout
 import technolifestyle.com.imageslider.FlipperView
-import android.widget.Toast
-
+import java.util.*
 
 
 class NavigationActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener , ConnectivityReceiver.ConnectivityReceiverListener {
     override fun onNetworkConnectionChanged(isConnected: Boolean) {
         showSnack(isConnected)
     }
+
+    var prefs: SharedPreferences? = null
 
     private val TAG = NavigationActivity::class.java.simpleName
     private lateinit var flipperLayout: FlipperLayout
@@ -43,29 +51,32 @@ class NavigationActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         setSupportActionBar(toolbar)
         context=this@NavigationActivity
 
-        list= ArrayList()
-        list.add(CategoriModel(R.drawable.ic_medicine, getString(R.string.medical)))
-        list.add(CategoriModel(R.drawable.ic_doctor, getString(R.string.hospital)))
-        list.add(CategoriModel(R.drawable.ic_light_bulb, getString(R.string.electronic)))
-        list.add(CategoriModel(R.drawable.ic_grocery, getString(R.string.grocery)))
-        list.add(CategoriModel(R.drawable.ic_smartphone, getString(R.string.mobile)))
-        list.add(CategoriModel(R.drawable.ic_bank_store, getString(R.string.bank)))
-        list.add(CategoriModel(R.drawable.ic_necklace, getString(R.string.jewels)))
-        list.add(CategoriModel(R.drawable.ic_laddu, getString(R.string.sweets)))
-        list.add(CategoriModel(R.drawable.ic_apple, getString(R.string.fruite)))
-        list.add(CategoriModel(R.drawable.vegetable, getString(R.string.vegetable)))
-        list.add(CategoriModel(R.drawable.ic_shoes, getString(R.string.shoes)))
-        list.add(CategoriModel(R.drawable.ic_cloth, getString(R.string.cloth)))
-        list.add(CategoriModel(R.drawable.ic_carpenter, getString(R.string.carpenter)))
-        list.add(CategoriModel(R.drawable.ic_farincher, getString(R.string.farincher)))
-        list.add(CategoriModel(R.drawable.ic_restaurants, getString(R.string.restaurants)))
-        list.add(CategoriModel(R.drawable.ic_school, getString(R.string.school)))
-        list.add(CategoriModel(R.drawable.ic_stacenary, getString(R.string.stacenary)))
-        list.add(CategoriModel(R.drawable.ic_hotel, getString(R.string.hotel)))
-        list.add(CategoriModel(R.drawable.ic_temple, getString(R.string.temple)))
-        list.add(CategoriModel(R.drawable.ic_vehicle, getString(R.string.vehicle)))
-        list.add(CategoriModel(R.drawable.ic_petrol_pump, getString(R.string.petrol)))
+        prefs = this.getSharedPreferences("Language_pref", 0)
 
+
+
+        list= ArrayList()
+        list.add(CategoriModel(R.drawable.ic_medicine, getString(R.string.medical),"Medical"))
+        list.add(CategoriModel(R.drawable.ic_doctor, getString(R.string.hospital),"Hospital"))
+        list.add(CategoriModel(R.drawable.ic_light_bulb, getString(R.string.electronic),"Electronic"))
+        list.add(CategoriModel(R.drawable.ic_grocery, getString(R.string.grocery),"General_Store"))
+        list.add(CategoriModel(R.drawable.ic_smartphone, getString(R.string.mobile),"Sweets"))
+        list.add(CategoriModel(R.drawable.ic_bank_store, getString(R.string.bank),"Bank"))
+        list.add(CategoriModel(R.drawable.ic_necklace, getString(R.string.jewels),"Medical"))
+        list.add(CategoriModel(R.drawable.ic_laddu, getString(R.string.sweets),"Medical"))
+        list.add(CategoriModel(R.drawable.ic_apple, getString(R.string.fruite),"Medical"))
+        list.add(CategoriModel(R.drawable.vegetable, getString(R.string.vegetable),"Medical"))
+        list.add(CategoriModel(R.drawable.ic_shoes, getString(R.string.shoes),"Medical"))
+        list.add(CategoriModel(R.drawable.ic_cloth, getString(R.string.cloth),"Medical"))
+        list.add(CategoriModel(R.drawable.ic_carpenter, getString(R.string.carpenter),"Medical"))
+        list.add(CategoriModel(R.drawable.ic_farincher, getString(R.string.farincher),"Medical"))
+        list.add(CategoriModel(R.drawable.ic_restaurants, getString(R.string.restaurants),"Medical"))
+        list.add(CategoriModel(R.drawable.ic_school, getString(R.string.school),"Medical"))
+        list.add(CategoriModel(R.drawable.ic_stacenary, getString(R.string.stacenary),"Medical"))
+        list.add(CategoriModel(R.drawable.ic_hotel, getString(R.string.hotel),"Medical"))
+        list.add(CategoriModel(R.drawable.ic_temple, getString(R.string.temple),"Medical"))
+        list.add(CategoriModel(R.drawable.ic_vehicle, getString(R.string.vehicle),"Medical"))
+        list.add(CategoriModel(R.drawable.ic_petrol_pump, getString(R.string.petrol),"Medical"))
 
 
 
@@ -104,14 +115,15 @@ class NavigationActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
             R.id.nav_camera -> {
                 // Handle the camera action
             }
-            R.id.nav_gallery -> {
+            R.id.nav_login -> {
+                startActivity(Intent(this@NavigationActivity, LoginUploadActivity::class.java))
 
             }
             R.id.nav_slideshow -> {
 
             }
-            R.id.nav_manage -> {
-
+            R.id.nav_settings -> {
+                startActivity(Intent(this@NavigationActivity, Settings::class.java))
             }
             R.id.nav_share -> {
 
@@ -124,6 +136,8 @@ class NavigationActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
     }
+
+
 
 
 
@@ -152,17 +166,15 @@ class NavigationActivity : AppCompatActivity(), NavigationView.OnNavigationItemS
     private fun log(mess:String){
         Utils.log(TAG,mess)
     }
-    private fun toast(mess:String){
-        Utils.toast(context,mess)
-    }
+
     private fun showSnack(isConnected: Boolean) {
         if (isConnected)
-            Utils.showToast(this, getString(R.string.network_status), Color.GREEN)
+            Utils.showSnackBar(this, getString(R.string.network_status), Color.GREEN)
         else
-            Utils.showToast(this, getString(R.string.network_status_false), Color.RED)
+            Utils.showSnackBar(this, getString(R.string.network_status_false), Color.RED)
     }
 
-    var doubleBackToExitPressedOnce = false
+    private var doubleBackToExitPressedOnce = false
 
     override fun onBackPressed() {
 

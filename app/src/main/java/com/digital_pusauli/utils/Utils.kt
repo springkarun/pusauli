@@ -12,6 +12,7 @@ import android.net.Uri
 import android.support.annotation.ColorRes
 import android.support.annotation.DrawableRes
 import android.support.design.widget.Snackbar
+import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.util.Base64
@@ -23,6 +24,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.digital_pusauli.R
+import com.tapadoo.alerter.Alerter
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
@@ -44,7 +46,7 @@ object Utils {
     }
 
     //Custom Snackbar
-    fun showToast(context: Context, message: String, color: Int): Snackbar {
+    fun showSnackBar(context: Context, message: String, color: Int): Snackbar {
         val sb = Snackbar.make((context as Activity).findViewById<View>(android.R.id.content), message, Snackbar.LENGTH_LONG)
         sb.view.setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimaryDark))
         val textView = sb.view.findViewById<TextView>(android.support.design.R.id.snackbar_text)
@@ -54,8 +56,8 @@ object Utils {
     }
 
     //show Toast
-    fun toast(cnxt: Context, mess: String) {
-        Toast.makeText(cnxt, mess, Toast.LENGTH_SHORT).show()
+    fun Context.toast(mess: String){
+        Toast.makeText(this,mess,Toast.LENGTH_SHORT).show()
     }
 
     //show Log
@@ -70,7 +72,15 @@ object Utils {
              Glide.with(this).load(imageUrl).into(this)
          }
 
+     fun Alerters(cnt:AppCompatActivity,mess:String) {
 
+        Alerter.create(cnt)
+                .setTitle(mess)
+                .enableProgress(true)
+                .setBackgroundColorRes(R.color.test1)
+                .setProgressColorRes(R.color.colorAccent)
+                .show()
+         }
 
 
          //   val ed = edit.text.toString()
@@ -143,9 +153,7 @@ object Utils {
         startActivity(Intent(Intent.ACTION_DIAL,Uri.parse("tel:$tel")))
     }
 
-    fun Context.toast(mess: String?){
-        Toast.makeText(this,mess,Toast.LENGTH_SHORT).show()
-    }
+
 
 
 

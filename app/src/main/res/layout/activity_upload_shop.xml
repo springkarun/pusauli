@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="vertical"
+    android:background="#f8218fcc">
+
+    <LinearLayout
+        android:background="#f8218fcc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/fre"
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/img"
+            android:contentDescription="TODO" />
+
+
+        <RelativeLayout
+
+            android:layout_gravity="right|bottom"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:contentDescription="TODO"
+                app:srcCompat="@drawable/ic_attachment" />
+
+        </RelativeLayout>
+
+
+
+            <RelativeLayout
+                android:layout_width="94dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="10dp"
+                android:background="@android:color/transparent">
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/logo"
+                    android:layout_width="94dp"
+                    android:layout_height="94dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/kk"
+                    app:civ_border_color="#0eb6b6"
+                    app:civ_border_width="2dp"/>
+
+                <RelativeLayout
+                    android:layout_marginTop="60dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:contentDescription="TODO"
+                        app:srcCompat="@drawable/ic_attachment" />
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+
+
+
+        </FrameLayout>
+
+
+    <android.support.v7.widget.CardView
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        app:cardCornerRadius="5dp"
+        android:padding="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:entries="@array/languages"
+            />
+
+        <VideoView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#d5878787"
+            />
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/edit_text">
+            <EditText
+                android:id="@+id/edit_shopName"
+                style="@style/edit_text"
+                android:hint="@string/enter_shop_name"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/edit_text">
+            <EditText
+                android:id="@+id/edit_shopReg"
+                style="@style/edit_text"
+                android:hint="@string/shop_registation"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/edit_text">
+            <EditText
+                android:id="@+id/edit_shopEmail"
+                style="@style/edit_text"
+                android:hint="@string/shop_email_id"
+                android:inputType="textEmailAddress"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/edit_text">
+            <EditText
+                android:id="@+id/edit_shopMobile"
+                style="@style/edit_text"
+                android:hint="@string/shop_mobile"
+                android:inputType="number"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/edit_text">
+            <EditText
+                android:id="@+id/edit_shopAddress"
+                style="@style/edit_text"
+                android:hint="@string/shop_address"
+                android:inputType="textMultiLine"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/edit_text">
+            <EditText
+                android:id="@+id/edit_shopNearst"
+                style="@style/edit_text"
+                android:hint="@string/shop_nearst"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            style="@style/edit_text"
+            android:layout_marginBottom="40dp"
+            >
+            <EditText
+                android:id="@+id/edit_shopTime"
+                style="@style/edit_text"
+                android:hint="@string/shop_time"
+                />
+        </android.support.design.widget.TextInputLayout>
+
+
+    </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+
+
+</ScrollView>

@@ -46,6 +46,7 @@ class CategoryActivity : AppCompatActivity(), ConnectivityReceiver.ConnectivityR
     private lateinit var pb: CustomProgressBar
 
     private var catg_name=""
+    private var catg_nameKey=""
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,6 +59,7 @@ class CategoryActivity : AppCompatActivity(), ConnectivityReceiver.ConnectivityR
         val extras = intent.extras
         if (extras != null) {
             try {
+                catg_nameKey=extras.getString("catg_nameKey")
                 catg_name=extras.getString("key")
             } catch (e: Exception) {
             }
@@ -70,7 +72,7 @@ class CategoryActivity : AppCompatActivity(), ConnectivityReceiver.ConnectivityR
 
         if (ConnectivityReceiver.isConnected) {
             try {
-                initJson(catg_name)
+                initJson(catg_nameKey)
             } catch (e: Exception) {
             }
 
@@ -200,14 +202,12 @@ class CategoryActivity : AppCompatActivity(), ConnectivityReceiver.ConnectivityR
     private fun log(mess:String){
         Utils.log(TAG,mess)
     }
-    private fun toast(mess:String){
-        Utils.toast(context,mess)
-    }
+
     private fun showSnack(isConnected: Boolean) {
         if (isConnected)
-            Utils.showToast(this, getString(R.string.network_status), Color.GREEN)
+            Utils.showSnackBar(this, getString(R.string.network_status), Color.GREEN)
         else
-            Utils.showToast(this, getString(R.string.network_status_false), Color.RED)
+            Utils.showSnackBar(this, getString(R.string.network_status_false), Color.RED)
     }
 
 

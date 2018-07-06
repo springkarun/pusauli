@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-
     <application
         android:name=".app.AppController"
         android:allowBackup="true"
@@ -13,8 +12,11 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+
+
         <activity
-            android:name=".view.categroy_menu.NavigationActivity"
+            android:name=".view.login_upload.RegisterShop.UploadShopActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -23,29 +25,44 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.SplashActivity" />
+        <!--
+        <activity
+            android:name=".view.SplashActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        -->
 
         <activity
+            android:name=".view.categroy_menu.NavigationActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".view.categroy.CategoryActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            />
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.sub_option.Sub_Classs_info"
             android:label=""
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".view.list_menu.Settings" />
 
-
-        <receiver android:name=".utils.ConnectivityReceiver"
-            >
+        <receiver android:name=".utils.ConnectivityReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
                 <action android:name="android.net.wifi.WIFI_STATE_CHANGED" />
             </intent-filter>
         </receiver>
 
-
+        <activity android:name=".view.login_upload.login.LoginUploadActivity" />
+       <!-- <activity
+            android:name=".view.login_upload.RegisterShop.UploadShopActivity"
+            android:theme="@style/AppTheme2"
+            />-->
     </application>
 
 </manifest>

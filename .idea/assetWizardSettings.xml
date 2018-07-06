@@ -33,9 +33,10 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_arrow" />
-                            <entry key="sourceFile" value="C:\Users\Pune\Downloads\placeholder (1).svg" />
+                            <entry key="outputName" value="ic_attachment" />
+                            <entry key="sourceFile" value="C:\Users\Pune\Downloads\attachment.svg" />
                           </map>
                         </option>
                       </PersistentState>

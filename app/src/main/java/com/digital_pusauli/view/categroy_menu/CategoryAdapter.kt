@@ -30,15 +30,19 @@ class CategoryAdapter(private val list : ArrayList<CategoriModel>) : RecyclerVie
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView),View.OnClickListener {
         private val context: Context =itemView.context
         private var catg_name: String? = null
+        private var catg_nameKey: String? = null
         fun bindItems(model: CategoriModel){
             itemView.setOnClickListener(this) // bind the listener
+            catg_nameKey=model.nameKey
             catg_name=model.name
             itemView.img.setImageResource(model.img)
             itemView.txt.text=model.name
         }
 
         override fun onClick(v: View?) {
-            context.startActivity(Intent(context, CategoryActivity::class.java).putExtra("key",catg_name))
+            context.startActivity(Intent(context, CategoryActivity::class.java)
+                    .putExtra("key",catg_name)
+                    .putExtra("catg_nameKey",catg_nameKey))
         }
     }
 
