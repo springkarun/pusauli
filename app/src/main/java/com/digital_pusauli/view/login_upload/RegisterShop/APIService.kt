@@ -1,3 +1,4 @@
+/*
 package com.digital_pusauli.view.login_upload.RegisterShop
 
 import okhttp3.MultipartBody
@@ -14,9 +15,11 @@ import retrofit2.http.PUT
 import retrofit2.http.Part
 
 interface APIService {
-    /*@Multipart
+    */
+/*@Multipart
     @POST("/upload_multi_files/MultiUpload.php")
-    Call<ResponseBody> uploadFile(@Part MultipartBody.Part file, @Part("name") RequestBody name);*/
+    Call<ResponseBody> uploadFile(@Part MultipartBody.Part file, @Part("name") RequestBody name);*//*
+
 
     @Multipart
     @POST("/uploaded_image.php")
@@ -57,3 +60,4 @@ interface APIService {
             @Field("profileImage") profileImage: String): Call<ResponseBody>
     //@Field parameters can only be used with form encoding. (parameter #2)
 }
+*/

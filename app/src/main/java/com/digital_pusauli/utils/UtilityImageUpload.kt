@@ -17,6 +17,9 @@ import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import com.theartofdev.edmodo.cropper.CropImage
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
@@ -117,7 +120,7 @@ class UtilityImageUpload(activity: AppCompatActivity) {
 
     fun CropParseImage(resultCode:Int,data:Intent?):Bitmap{
         var bm:Bitmap?=null
-        val result = CropImage.getActivityResult(data)
+        val result = CropImage.getActivityResult(data!!)
         if (resultCode == AppCompatActivity.RESULT_OK) {
 
             val crop_resultUri = result.uri
@@ -236,9 +239,18 @@ class UtilityImageUpload(activity: AppCompatActivity) {
 
 
 
+      //Multpart Data text
+     fun multi(s:String): RequestBody {
+        return RequestBody.create(MediaType.parse("text/plain"),s)
+     }
 
-
-
+    //Multpart Data file
+    fun multiImg(s:File): MultipartBody.Part {
+        //  val mFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+        val mFile = RequestBody.create(MediaType.parse("image/*"), s)
+        val fileToUpload = MultipartBody.Part.createFormData("file", s.name, mFile)
+        return fileToUpload
+    }
 
 
 }

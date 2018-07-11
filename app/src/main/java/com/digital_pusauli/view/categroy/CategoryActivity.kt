@@ -194,11 +194,6 @@ class CategoryActivity : AppCompatActivity(), ConnectivityReceiver.ConnectivityR
                 )
     }
 
-
-
-
-
-
     private fun log(mess:String){
         Utils.log(TAG,mess)
     }

@@ -1,3 +1,4 @@
+/*
 package com.digital_pusauli.restapi;
 
 import android.content.Context;
@@ -71,4 +72,4 @@ public class ApiClient {
  
         okHttpClient = httpClient.build();
     }
-}
+}*/
