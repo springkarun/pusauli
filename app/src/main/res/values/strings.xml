@@ -69,6 +69,12 @@
     <string name="shop_address">Shop Address</string>
     <string name="shop_nearst">Shop Nearst</string>
     <string name="shop_time">Shop Time</string>
+    <string name="qwner_name">Owner Name</string>
+    <string name="owner_email">Owner Email</string>
+    <string name="owner_contact">Owner Contact</string>
+    <string name="submit">Submit</string>
+    <string name="for_shop">For Shop</string>
+    <string name="for_ower">For Ower</string>
 
     <string-array name="languages" translatable="false">
         <item>en-US</item>
