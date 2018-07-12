@@ -1,6 +1,7 @@
 package com.digital_pusauli.restservices
 import com.digital_pusauli.app.Constant.urlCategoryShopAll
 import com.digital_pusauli.app.Constant.urlRegister_shop
+import com.digital_pusauli.app.Constant.urlShowAllShop
 import com.digital_pusauli.model.ResponseModel
 import com.digital_pusauli.model.ResponseModels
 import io.reactivex.Observable
@@ -37,11 +38,14 @@ interface APIService {
                     @Part ownerAvatar: MultipartBody.Part,
                     @Part shopAvatar: MultipartBody.Part): Observable<ResponseModels>
 
+    @GET(urlShowAllShop)
+    fun getShowShopAll(): Observable<ResponseModels>
 
-    @POST("/categrory_details.php")
+
+   /* @POST("/categrory_details.php")
     @FormUrlEncoded
     fun getCategrory(@Field("category_id") catg_name: String): Observable<ResponseModel>
-
+*/
 
 /*
 

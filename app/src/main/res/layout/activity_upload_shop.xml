@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/img"
+            android:src="@drawable/avatar"
             android:contentDescription="TODO" />
 
 
@@ -60,7 +60,7 @@
                     android:layout_width="94dp"
                     android:layout_height="94dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/kk"
+                    android:src="@drawable/avatar"
                     app:civ_border_color="#0eb6b6"
                     app:civ_border_width="2dp"/>
 

@@ -21,10 +21,9 @@
                 android:id="@+id/img"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
                 android:scaleType="centerCrop"
-                android:src="@drawable/vegetable" />
+                app:srcCompat="@drawable/avatar"
+                />
 
 
             <FrameLayout
@@ -42,12 +41,12 @@
 
                     <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/logo"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginStart="5dp"
                         android:layout_width="54dp"
                         android:layout_height="54dp"
                         android:layout_alignParentTop="true"
                         android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/ic_apple"
+                        app:srcCompat="@drawable/avatar"
                         app:civ_border_color="#0097A7"
                         app:civ_border_width="1dp" />
 
@@ -55,7 +54,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_toRightOf="@+id/logo"
+                        android:layout_toEndOf="@+id/logo"
                         android:background="@android:color/transparent"
                         android:padding="5dp">
 
@@ -87,12 +86,12 @@
                                 app:srcCompat="@drawable/ic_placeholder" />
 
                             <TextView
-                                android:layout_marginLeft="3dp"
+                                android:layout_marginStart="3dp"
                                 android:layout_marginTop="2dp"
                                 android:id="@+id/location"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_toRightOf="@+id/loc"
+                                android:layout_toEndOf="@+id/loc"
                                 android:gravity="left"
                                 android:text="RORKEE ,HARIDWAR"
                                 android:textColor="#ffffff"

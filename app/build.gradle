@@ -53,8 +53,6 @@ dependencies {
 
     //crop image
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.+'
-    //alertDialog
-    implementation 'com.github.f0ris.sweetalert:library:1.5.1'
 
 
 

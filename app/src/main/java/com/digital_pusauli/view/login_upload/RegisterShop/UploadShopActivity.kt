@@ -24,9 +24,6 @@ import com.theartofdev.edmodo.cropper.CropImage
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_upload_shop.*
-import cn.pedant.SweetAlert.SweetAlertDialog
-
-
 
 
 class UploadShopActivity : AppCompatActivity(),
@@ -210,15 +207,15 @@ class UploadShopActivity : AppCompatActivity(),
                 .subscribe(
                         { result ->
                              pb.dismiss()
-                             if(result.status) {
+                             if(result.status!!) {
 
                                  val d=Data()
                                  d.categoryId="0"
                                  d.categoryName="Select Category "
                                  listSpinner.add(0,d)
 
-                                 for(i in result.data) {
-                                     listSpinner.add(i)
+                                 for(i in result.data!!) {
+                                     listSpinner.add(i!!)
                                  }
                                  adpSpinner = SpinnerAdapter(applicationContext, listSpinner)
                                  sp_category.adapter = adpSpinner
@@ -345,13 +342,9 @@ class UploadShopActivity : AppCompatActivity(),
 
         log("bitmap_fornt path-> $bitmap_fornt ,  bitmap_back path-> $bitmap_back" )
 
-    //    dialogProgress(context).show()
-
-        val pDialog = SweetAlertDialog(context, SweetAlertDialog.PROGRESS_TYPE)
-        pDialog.progressHelper.barColor = Color.parseColor("#A5DC86")
-        pDialog.titleText = "Uploading..."
-        pDialog.setCancelable(false)
-        pDialog.show()
+        pb = CustomProgressBar(this)
+        pb.setCancelable(false)
+        pb.show()
 
         apiServices!!.saveRegisterShop(
                 picIntance.multi(categoryId),
@@ -377,29 +370,21 @@ class UploadShopActivity : AppCompatActivity(),
                 .subscribe(
                         { result ->
                             log("Response JSON = ${Gson().toJson(result.data)}")
-                            pDialog.dismiss()
-                            if(result.status) {
-                            toast(result.message)
-                                var shopId=""
-                                for(i in result.data) {
-                                    shopId= i.shopId!!
+                            pb.dismiss()
+                            if(result.status!!) {
+                            toast(result.message!!)
+                                for(i in result.data!!) {
+                                    showPopUp(context,i!!.shopId!!)
+                                    clearField()
                                 }
-                                SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
-                                        .setTitleText("Your Shop Id : $shopId")
-                                        .setContentText("Ok")
-                                        .show()
-                                clearField()
                             }
                         },
                         { error ->
-                            pDialog.dismiss()
+                            pb.dismiss()
                             log("ERROR ${error.message }")
                         }
                 )
     }
-
-
-
 
 
 

@@ -4,7 +4,7 @@ package com.digital_pusauli.app
 object Constant {
 
     const val BASE_URL = "http://192.168.43.121:8080"
-    const val BASE_URL_Image = "http://worklime.com/immigration/images/"
+    const val BASE_URL_Image = "$BASE_URL/api/images/"
     //const val BASE_URL_Image = "http://worklime.com/immigration/images/Image-863835754.jpeg"
     const val DefaultImage = "https://s10.postimg.org/mmadoq6jd/user.png"
     const val BASE_URL2 = "https://raw.githubusercontent.com"
@@ -14,6 +14,7 @@ object Constant {
 
     const val urlCategoryShopAll = "/api/categoryShopAll"
     const val urlRegister_shop = "/api/register_shop"
+    const val urlShowAllShop = "/api/showAllShop"
 
     const val urlVerifyOtp = "/immigration/api/verifyOtp"
     const val urlResendOtp = "/immigration/api/resendOtp"

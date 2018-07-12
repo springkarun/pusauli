@@ -14,8 +14,8 @@ import android.support.v7.widget.Toolbar
 import android.view.View
 import android.view.WindowManager
 import com.digital_pusauli.R
-import com.digital_pusauli.model.ResponseModel
-import com.digital_pusauli.model.Result
+import com.digital_pusauli.app.Constant
+import com.digital_pusauli.model.Data
 import com.digital_pusauli.utils.Utils
 import com.digital_pusauli.utils.loadFromUrl
 import com.digital_pusauli.view.sub_option.menu_option.about.About_Fragment
@@ -33,7 +33,7 @@ class Sub_Classs_info : AppCompatActivity() {
 
 
 
-    private lateinit var result:Result
+    private lateinit var result: Data
 
     private var bg_color: String? = null
     private var bundle: Bundle? = null
@@ -65,8 +65,8 @@ class Sub_Classs_info : AppCompatActivity() {
 
 
         bundle = Bundle()
-       // bg_color = "#0097A7"
-        bg_color = "#${result.colorCode}"
+        bg_color = "#0097A7"
+       // bg_color = "#${result.colorCode}"
 
 
 
@@ -117,8 +117,10 @@ class Sub_Classs_info : AppCompatActivity() {
 
         cl_name.text = result.shopName
         location_city.text = result.shopAddress
-        image_paralax.loadFromUrl(result.shopAvatar)
-        clg_logo.loadFromUrl(result.ownerAvatar)
+        image_paralax.loadFromUrl(Constant.BASE_URL_Image +result.shopAvatar)
+        clg_logo.loadFromUrl(Constant.BASE_URL_Image +result.ownerContact)
+
+
 
 
     }

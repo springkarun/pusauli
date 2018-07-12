@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import com.digital_pusauli.R
 import com.digital_pusauli.utils.Alerters
+import com.digital_pusauli.view.login_upload.RegisterShop.AllUploadListActivity
 import com.digital_pusauli.view.login_upload.RegisterShop.UploadShopActivity
 import kotlinx.android.synthetic.main.activity_login_upload.*
 
@@ -29,8 +30,7 @@ class LoginUploadActivity : AppCompatActivity() {
             }else if(password.isBlank()) {
                 Alerters(context, "Please enter Password")
             }else if(id=="kk" && password=="pune"){
-                startActivity(Intent(context, UploadShopActivity::class.java))
-
+                startActivity(Intent(context, AllUploadListActivity::class.java))
                 ids.text.clear()
                 pass.text.clear()
             }else Alerters(context,"Inviald Username or Password")

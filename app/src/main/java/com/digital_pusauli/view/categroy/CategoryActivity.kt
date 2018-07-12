@@ -15,8 +15,9 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import com.digital_pusauli.R
+import com.digital_pusauli.adapter.CategoryAdapters
 import com.digital_pusauli.app.AppController
-import com.digital_pusauli.model.Result
+import com.digital_pusauli.model.Data
 import com.digital_pusauli.restservices.APIService
 import com.digital_pusauli.restservices.ApiUtils
 import com.digital_pusauli.utils.ConnectivityReceiver
@@ -28,6 +29,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_categroies.*
 import java.util.*
+import kotlin.collections.ArrayList
 
 
 class CategoryActivity : AppCompatActivity(), ConnectivityReceiver.ConnectivityReceiverListener {
@@ -40,9 +42,9 @@ class CategoryActivity : AppCompatActivity(), ConnectivityReceiver.ConnectivityR
     private val TAG = CategoryActivity::class.java.simpleName
     private var apiServices: APIService? = null
     private lateinit var context: Context
-    private lateinit var list: ArrayList<Result>
+    private lateinit var list: ArrayList<Data>
     private lateinit var recyclerView:RecyclerView
-    private lateinit var mAdapter:CategoryAdapters
+    private lateinit var mAdapter: CategoryAdapters
     private lateinit var pb: CustomProgressBar
 
     private var catg_name=""
@@ -56,14 +58,16 @@ class CategoryActivity : AppCompatActivity(), ConnectivityReceiver.ConnectivityR
         Utils.leftToRight(this@CategoryActivity)
         setContentView(R.layout.activity_categroies)
 
-        val extras = intent.extras
+
+        list= ArrayList()
+       /* val extras = intent.extras
         if (extras != null) {
             try {
                 catg_nameKey=extras.getString("catg_nameKey")
                 catg_name=extras.getString("key")
             } catch (e: Exception) {
             }
-        }
+        }*/
 
         apiServices=ApiUtils.apiService
 
@@ -72,7 +76,7 @@ class CategoryActivity : AppCompatActivity(), ConnectivityReceiver.ConnectivityR
 
         if (ConnectivityReceiver.isConnected) {
             try {
-                initJson(catg_nameKey)
+                initJson()
             } catch (e: Exception) {
             }
 
@@ -160,32 +164,29 @@ class CategoryActivity : AppCompatActivity(), ConnectivityReceiver.ConnectivityR
     }
 
 
-    private fun initJson(catg_name:String){
+    private fun initJson(){
 
         pb = CustomProgressBar(this)
         pb.setCancelable(false)
         pb.show()
 
-
-
-        apiServices!!.getCategrory(catg_name)
+        apiServices!!.getShowShopAll()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         {
-                            result -> log("Response JSON = ${Gson().toJson(result.result)}")
+                            result -> log("Response JSON = ${Gson().toJson(result.data)}")
                             pb.dismiss()
-
-                            if(result.status) {
+                            if (result.status!!) {
                                 tv_item_not.visibility=View.GONE
-                                list = ArrayList(result.result)
+                                for (i in result.data!!) {
+                                    list.add(i!!)
+                                }
                                 mAdapter = CategoryAdapters(list)
                                 recyclerView.adapter = mAdapter
                             }else{
                                 tv_item_not.visibility=View.VISIBLE
                             }
-
-
                         },
                         { error ->
                             pb.dismiss()

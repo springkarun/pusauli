@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="92dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="6dip">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/picture"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:padding="0dp"
+        android:src="@drawable/avatar"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="10dp"
+        app:civ_border_color="#0eb6b6"
+        app:civ_border_width="2dp"/>
+
+
+
+    <TextView
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:singleLine="true"
+        android:text="Content"
+        android:textSize="12sp"
+        android:paddingStart="5dp"
+        android:textColor="@color/colorSecondaryText"
+        android:layout_below="@+id/user_name"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="92dp"
+        android:layout_marginEnd="16dp" />
+
+    <TextView
+        android:id="@+id/user_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="true"
+        android:gravity="center_vertical"
+        android:text="Username"
+        android:textSize="14sp"
+        android:paddingStart="5dp"
+        android:textColor="@color/colorPrimaryText"
+        android:layout_alignTop="@+id/picture"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="92dp"
+        android:layout_marginEnd="16dp"
+        android:paddingBottom="1dp" />
+
+    <TextView
+        android:layout_below="@+id/content"
+        android:id="@+id/reg_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:text="Repuig"
+        android:layout_marginTop="5dp"
+        android:textSize="14sp"
+        android:paddingLeft="5dp"
+        android:textColor="#ed9600"
+        android:layout_marginStart="92dp"
+        android:layout_marginEnd="16dp"
+        android:paddingBottom="2dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="time"
+        android:id="@+id/time"
+        android:textSize="10sp"
+        android:textColor="@color/colorSecondaryText"
+        android:layout_below="@+id/user_name"
+        android:layout_alignRight="@+id/content"
+        android:layout_alignEnd="@+id/content" />
+
+    <View
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="35dp"
+        android:layout_below="@+id/time"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#4564"/>
+
+</RelativeLayout>

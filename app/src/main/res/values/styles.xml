@@ -56,6 +56,12 @@
     </style>
 
 
+    <style name="btn_style" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">#1fb3c9</item>
+
+    </style>
 
 
 
