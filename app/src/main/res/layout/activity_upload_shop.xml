@@ -114,10 +114,11 @@
             />
 
         <Spinner
+            android:id="@+id/sp_category"
             android:layout_marginTop="15dp"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:entries="@array/languages"
+            android:layout_height="42dp"
+            android:spinnerMode="dropdown"
             />
 
         <View
@@ -163,6 +164,7 @@
                 style="@style/edit_text"
                 android:hint="@string/shop_mobile"
                 android:inputType="number"
+                android:maxLength="10"
                 />
         </android.support.design.widget.TextInputLayout>
 
@@ -256,6 +258,7 @@
                         style="@style/edit_text"
                         android:hint="@string/owner_contact"
                         android:inputType="number"
+                        android:maxLength="10"
                         android:layout_marginBottom="15dp"
                         />
                 </android.support.design.widget.TextInputLayout>

@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName
 
 
 
+
+
 data class ResponseModel(
     @SerializedName("status") val status: Boolean,
     @SerializedName("result") val result: List<Result>

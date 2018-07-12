@@ -7,12 +7,12 @@ import android.content.Intent
 import android.content.Intent.*
 import android.graphics.Bitmap
 import android.graphics.Canvas
+import android.graphics.Color
 import android.graphics.Matrix
 import android.net.Uri
 import android.support.annotation.ColorRes
 import android.support.annotation.DrawableRes
 import android.support.design.widget.Snackbar
-import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.util.Base64
@@ -22,6 +22,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.bumptech.glide.Glide
 import com.digital_pusauli.R
 import com.tapadoo.alerter.Alerter
@@ -81,6 +82,15 @@ object Utils {
                 .setProgressColorRes(R.color.colorAccent)
                 .show()
          }
+
+      fun dialogProgress(cnt:AppCompatActivity):SweetAlertDialog{
+          val pDialog = SweetAlertDialog(cnt, SweetAlertDialog.PROGRESS_TYPE)
+          pDialog.progressHelper.barColor = Color.parseColor("#A5DC86")
+          pDialog.titleText = "Uploading..."
+          pDialog.setCancelable(false)
+         return pDialog
+      }
+
 
 
          //   val ed = edit.text.toString()

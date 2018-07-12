@@ -245,10 +245,10 @@ class UtilityImageUpload(activity: AppCompatActivity) {
      }
 
     //Multpart Data file
-    fun multiImg(s:File): MultipartBody.Part {
+    fun multiImg(s:File,key:String): MultipartBody.Part {
         //  val mFile = RequestBody.create(MediaType.parse("multipart/form-data"), file);
         val mFile = RequestBody.create(MediaType.parse("image/*"), s)
-        val fileToUpload = MultipartBody.Part.createFormData("file", s.name, mFile)
+        val fileToUpload = MultipartBody.Part.createFormData(key, s.name, mFile)
         return fileToUpload
     }
 

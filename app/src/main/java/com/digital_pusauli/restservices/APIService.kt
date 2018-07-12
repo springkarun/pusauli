@@ -1,6 +1,8 @@
 package com.digital_pusauli.restservices
+import com.digital_pusauli.app.Constant.urlCategoryShopAll
+import com.digital_pusauli.app.Constant.urlRegister_shop
 import com.digital_pusauli.model.ResponseModel
-import com.digital_pusauli.view.login_upload.RegisterShop.Model
+import com.digital_pusauli.model.ResponseModels
 import io.reactivex.Observable
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -10,25 +12,36 @@ import retrofit2.http.*
 interface APIService {
 
 
-   /* @GET("android/jsonarray/")
-    fun register(): Observable<List<Android>>
-*/
+    @GET(urlCategoryShopAll)
+    fun getCategoryShopAll(): Observable<ResponseModels>
 
+
+    @Multipart
+    @POST(urlRegister_shop)
+    fun saveRegisterShop(
+                    @Part("categoryId")  categoryId: RequestBody,
+                    @Part("shopName") shopName: RequestBody,
+                    @Part("shopReg") shopReg: RequestBody,
+                    @Part("shopEmail") shopEmail: RequestBody,
+                    @Part("shopMobile") shopMobile: RequestBody,
+                    @Part("shopAddress") shopAddress: RequestBody,
+                    @Part("shopNearst") shopNearst: RequestBody,
+                    @Part("shopTime") shopTime: RequestBody,
+                    @Part("shopRating") shopRating: RequestBody,
+                    @Part("shopLatitude") shopLatitude: RequestBody,
+                    @Part("shopLongitude") shopLongitude: RequestBody,
+                    @Part("ownerName") ownerName: RequestBody,
+                    @Part("ownerEmail") ownerEmail: RequestBody,
+                    @Part("ownerContact") ownerContact: RequestBody,
+                    @Part("colorCode") colorCode: RequestBody,
+                    @Part ownerAvatar: MultipartBody.Part,
+                    @Part shopAvatar: MultipartBody.Part): Observable<ResponseModels>
 
 
     @POST("/categrory_details.php")
     @FormUrlEncoded
-    fun getCategrory(@Field("category_id")
-                     catg_name: String):
-            Observable<ResponseModel>
+    fun getCategrory(@Field("category_id") catg_name: String): Observable<ResponseModel>
 
-
-    @Multipart
-    @POST("/uploaded_image.php")
-    fun uploadPhoto(@Part("name")  name: RequestBody,
-                    @Part("age") age: RequestBody,
-                    @Part("mobile") mobile: RequestBody,
-                    @Part file: MultipartBody.Part): Observable<Model>
 
 /*
 
