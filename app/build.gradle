@@ -10,8 +10,8 @@ android {
         applicationId "com.digital_pusauli"
         minSdkVersion 19
         targetSdkVersion 27
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1.0"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -53,6 +53,12 @@ dependencies {
 
     //crop image
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.7.+'
+
+    //Color Pickar
+    implementation 'com.github.QuadFlask:colorpicker:0.0.13'
+
+    //Place Pickar
+    implementation "com.google.android.gms:play-services-places:15.0.1"
 
 
 

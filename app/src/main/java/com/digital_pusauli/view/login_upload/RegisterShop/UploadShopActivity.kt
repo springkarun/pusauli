@@ -1,6 +1,8 @@
 package com.digital_pusauli.view.login_upload.RegisterShop
 
+import android.annotation.SuppressLint
 import android.annotation.TargetApi
+import android.app.Activity
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Bitmap
@@ -8,6 +10,7 @@ import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import com.digital_pusauli.R
@@ -19,6 +22,11 @@ import com.digital_pusauli.restservices.ApiUtils
 import com.digital_pusauli.utils.*
 import com.digital_pusauli.utils.UtilityImageUpload.Companion.ALL_PERMISSIONS_RESULT
 import com.digital_pusauli.utils.Utils.toast
+import com.flask.colorpicker.ColorPickerView
+import com.flask.colorpicker.builder.ColorPickerDialogBuilder
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException
+import com.google.android.gms.common.GooglePlayServicesRepairableException
+import com.google.android.gms.location.places.ui.PlacePicker
 import com.google.gson.Gson
 import com.theartofdev.edmodo.cropper.CropImage
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -34,9 +42,17 @@ class UploadShopActivity : AppCompatActivity(),
         showSnack(isConnected)
     }
 
+    companion object {
+        private val PLACE_PICKER_REQUEST = 3
+        private val TAG = UploadShopActivity::class.java.simpleName
+    }
+
+
+
     val picIntance: UtilityImageUpload by lazy { UtilityImageUpload(this@UploadShopActivity) }
     var ischeck: Int = 0
-    private val TAG = UploadShopActivity::class.java.simpleName
+
+    private var mSelectedColor: Int = 0
     private var apiServices: APIService? = null
     private lateinit var pb: CustomProgressBar
     private lateinit var context: AppCompatActivity
@@ -50,6 +66,7 @@ class UploadShopActivity : AppCompatActivity(),
     private var bitmap_back: Bitmap? = null
 
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_upload_shop)
@@ -84,6 +101,21 @@ class UploadShopActivity : AppCompatActivity(),
             startActivityForResult(picIntance.pickImageChooserIntent, 370)
             ischeck = 2
         }
+
+
+        btn_view_color.text ="🎨 ${getString(R.string.choose_your_shop_color)}"
+        btn_location.text ="🏡 ${getString(R.string.add_your_shop_location)}"
+
+        btn_view_color.setOnClickListener {
+            colorPikar()
+        }
+
+        btn_location.setOnClickListener {
+            locationPlacesIntent()
+        }
+
+
+
 
         btn_submit.setOnClickListener {
 
@@ -140,7 +172,46 @@ class UploadShopActivity : AppCompatActivity(),
                 logo.setImageBitmap(bitmap_fornt)
                 ischeck = 0
             }
+        }else if (requestCode == PLACE_PICKER_REQUEST) {
+            if (resultCode == Activity.RESULT_OK) {
+                val place = PlacePicker.getPlace(this, data)
+                if (place != null) {
+                    val latLng = place.latLng
+                    val latlong =latLng.latitude.toString() + " : " +latLng.longitude.toString()
+                    Log.d(TAG,"LatLog:  $latlong   ")
+                } else {
+                    //PLACE IS NULL
+                }
+            }
         }
+    }
+
+
+    //Pikar Location
+    private fun locationPlacesIntent() {
+        try {
+            val builder = PlacePicker.IntentBuilder()
+            startActivityForResult(builder.build(this), PLACE_PICKER_REQUEST)
+        } catch (e: GooglePlayServicesRepairableException) { e.printStackTrace()
+        } catch (e: GooglePlayServicesNotAvailableException) { e.printStackTrace() }
+
+    }
+
+    //Pikar Color
+    private fun colorPikar() {
+        ColorPickerDialogBuilder
+                .with(this)
+                .setTitle("🎨${getString(R.string.choose_your_shop_color)}")
+                .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
+                .density(12)
+                .setPositiveButton("ok") { _, color, _ ->
+                    mSelectedColor = color
+                    Log.d("TAHS", "color :  $color")
+                    btn_view_color.setBackgroundColor(mSelectedColor);
+                }
+                .setNegativeButton("cancel") { _, _ -> }
+                .build()
+                .show()
     }
 
     @TargetApi(Build.VERSION_CODES.M)

@@ -188,15 +188,27 @@
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
-            style="@style/edit_text"
-            android:layout_marginBottom="40dp"
-            >
+            style="@style/edit_text">
             <EditText
                 android:id="@+id/edit_shopTime"
                 style="@style/edit_text"
                 android:hint="@string/shop_time"
                 />
         </android.support.design.widget.TextInputLayout>
+
+
+
+        <Button
+            style="@style/btn_styles"
+            android:id="@+id/btn_view_color"
+            android:text="@string/choose_your_shop_color" />
+
+        <Button
+            android:layout_marginBottom="40dp"
+            style="@style/btn_styles"
+            android:id="@+id/btn_location"
+            android:text="@string/add_your_shop_location" />
+
 
 
     </LinearLayout>

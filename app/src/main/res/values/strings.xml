@@ -116,4 +116,9 @@
     </string-array>
 
 
+    <string name="choose_your_shop_color">Choose your shop color</string>
+    <string name="add_your_shop_location">Add Your Shop Location</string>
+    <string name="api_key_google_places">AIzaSyBr7PJ9TIr19_xJRZ5YpMEYWfmBrtwaTts</string>
+
+
 </resources>
